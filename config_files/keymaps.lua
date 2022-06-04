@@ -39,7 +39,8 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- which_key
-lvim.builtin.which_key.mappings.d.U = { "<cmd>lua require('dapui').toggle()", "Toggle the dap-ui" }
+
+lvim.builtin.which_key.mappings["U"] = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle the dap ui" }
 
 lvim.builtin.which_key.mappings["q"] = { ":qa<CR>", "Quit All" }
 lvim.builtin.which_key.mappings["w"] = { ":wa<CR>", "Save All" }
