@@ -1,0 +1,10 @@
+{
+  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.inlayHints.maxLength": 0,
+  "rust-analyzer.inlayHints.smallerHints": false,
+  "rust-analyzer.inlayHints.parameterHints": false,
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "rust-analyzer.inlayHints.hideNamedConstructorHints": true,
+  "rust-analyzer.lens.enable": true
+}
