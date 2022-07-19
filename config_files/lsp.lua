@@ -12,7 +12,9 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{ exe = "flake8" },
-	{ exe = "codespell", args = { "-I", "/home/loena/.config/codespell/allow.txt" } },
+	{
+		exe = "codespell", --[[ args = { "-I", "/home/loena/.config/codespell/allow.txt" }]]
+	},
 	{ exe = "shellcheck" },
 	{ exe = "golangci-lint" },
 })
