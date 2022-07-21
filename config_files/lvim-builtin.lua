@@ -9,7 +9,7 @@ lvim.builtin.dap.on_config_done = function()
 end
 
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.show_icons.git = 1
+-- lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.nvimtree.setup.view.side = "left"
 
 lvim.builtin.treesitter.highlight.enabled = true
