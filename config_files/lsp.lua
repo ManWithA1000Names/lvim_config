@@ -1,4 +1,4 @@
-lvim.lsp.automatic_servers_installation = false
+lvim.lsp.installer.setup.automatic_installation = false
 
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
