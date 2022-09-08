@@ -153,6 +153,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"javascript",
 	"json",
 	"lua",
+  "fish",
 	"python",
 	"typescript",
 	"tsx",
@@ -179,7 +180,11 @@ lvim.builtin.treesitter.highlight.enabled = true
                                                                                                        ░                                                                   ░                         
 ]]
 
+lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.installer.setup.automatic_installation = false
+lvim.lsp.installer.setup.ensure_installed = {"pyright", "rust-analyzer", "tsserver", "lua-language-server", "tailwindcss-language-server", "gopls"}
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust" })
+
 
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
@@ -202,8 +207,6 @@ linters.setup({
 })
 
 -- config extensions
-lvim.lsp.diagnostics.virtual_text = false
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust" })
 
 --[[
  ██▓███   ██▓     █    ██   ▄████  ██▓ ███▄    █   ██████ 
@@ -347,3 +350,10 @@ end
 dap.listeners.before.event_exited["dapui.config"] = function()
 	dapui.close()
 end
+
+-- fix cmd deleting last char
+local cmp = require("cmp")
+lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping.confirm({ select = true })
+
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
