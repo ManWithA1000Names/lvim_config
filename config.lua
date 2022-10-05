@@ -16,6 +16,7 @@ lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
 vim.opt["foldlevel"] = 20
 vim.opt["foldmethod"] = "indent"
+vim.opt["relativenumber"] = true
 vim.g.tokyonight_style = "night"
 vim.cmd("autocmd VimLeave,VimSuspend * set guicursor=a:ver90")
 
@@ -67,10 +68,11 @@ lvim.keys.insert_mode["<C-M-Up>"] = "<esc>yyPji"
 lvim.keys.normal_mode["<C-M-Down>"] = "<esc>yypki"
 -- Marcos stuff
 lvim.keys.normal_mode["<Return>"] = "@a"
-lvim.keys.normal_mode["<Return>"] = "@w"
+lvim.keys.normal_mode["<Backspace>"] = "@w"
 -- Completing VIM
 lvim.keys.normal_mode["Y"] = "y$"
 lvim.keys.normal_mode['"'] = ":nohl<CR>"
+lvim.keys.visual_mode["<leader>p"] = "\"_dP"
 -- Navigation
 lvim.keys.normal_mode[","] = ":HopWord<CR>"
 -- Terminal
@@ -153,7 +155,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"javascript",
 	"json",
 	"lua",
-  "fish",
+	"fish",
 	"python",
 	"typescript",
 	"tsx",
@@ -182,9 +184,16 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.installer.setup.automatic_installation = false
-lvim.lsp.installer.setup.ensure_installed = {"pyright", "rust-analyzer", "tsserver", "lua-language-server", "tailwindcss-language-server", "gopls"}
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust" })
-
+lvim.lsp.installer.setup.ensure_installed = {
+	"pyright",
+	"tsserver",
+	"lua-language-server",
+	"tailwindcss-language-server",
+	"gopls",
+	"vscode-json-language-server",
+	"yaml-language-server",
+}
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust-analyzer" })
 
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
